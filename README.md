@@ -14,7 +14,6 @@ This is a solution to the [Interactive rating component challenge on Frontend Me
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -29,78 +28,69 @@ Users should be able to:
 
 ### Screenshot
 
-![1440px Screen Shot](.resources/images/screenshots/interactive_rating_screenshot_1440.png)
-![375px Screen Shot](.resources/images/screenshots/interactive_rating_screenshot_375.png)
+![1440px Screen Shot](./resources/images/screenshots/interactive_rating_screenshot_1440.png)
+![375px Screen Shot](./resources/images/screenshots/interactive_rating_screenshot_375.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/CaptainKaveman/Interactive-rating]
+- Live Site URL: [https://captainkaveman.github.io/Interactive-rating]
 
 ## My process
+
+I prefer to start with the mobile design and then add my media query to add responsiveness. I started with adding all of the HTML that would be needed for the site. After the HTML was done I added the custom classes that I would need. I then linked to my style sheet and added my CSS stylings. I started with creating the card and then worked from the top down to get my styling done. I used radio buttons to create the number options of 1 to 5. After the first card was done I added a custom class called .hidden to hide the card and then created the thank you card. I used a custom class called .card that is shared between the two cards to set the size of them.
+
+After the CSS was styled I worked on creating my function to identify what radio button was selected and to change the span tag to that value. Also in that function it will remove the hidden class from the thank you card (.card2) and then add the hidden class to the selection card (.card1). This function was added to the HTML submit button using onclick. I also created another function to reset the previous selection of the radio button if the page is refreshed. This was added to the body element using onload.
 
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Vanilla JavaScript
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+This was my first project that uses JavaScript to interact with elements on a webpage. I learned a lot about how to have JavaScript code look for elements and attributes and manipulate it.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div class="submit">
+	<button type="submit" onclick="results();">Submit</button>
+</div>
 ```
 
 ```css
-.proud-of-this-css {
-	color: papayawhip;
+.hidden {
+	display: none;
 }
 ```
 
 ```js
-const proudOfThisFunc = () => {
-	console.log("🎉");
-};
+function results() {
+	const radio = document.getElementsByName("rating");
+	const span = document.querySelector("span");
+	const remove = document.getElementById("card2").classList.remove("hidden");
+	const add = document.getElementById("card1").classList.add("hidden");
+	for (let i = 0; i <= radio.length; i++) {
+		if (radio[i].checked === true) {
+			span.textContent = i + 1;
+			return remove, add;
+		}
+	}
+}
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+For the continuation of this project I want to use SASS for the CSS styling and look at using some JavaScript packages like JQuery. I also haven't been able to add a check for the submit button on click to make sure that a radio button has been selected before it changes to the thank you card. Adding an else statement with an alert would still cause the thank you card to be displayed and the alert would always show.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Mozilla Web Docs](https://developer.mozilla.org/en-US/docs/Web) - This helped me look up the vanilla JavaScript to understand how to use the different methods.
+- [Kevin Powell](https://www.youtube.com/kepowob) - His videos are amazing and have really helped to understand a lot about CSS. He is also the reason I started with mobile first, which I felt was a lot easier.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [Kyle Corwin](https://www.kylecor.win)
+- Frontend Mentor - [@CaptainKaveman](https://www.frontendmentor.io/profile/CaptainKaveman)
+- Twitter - [@TheKyleCorwin](https://www.twitter.com/TheKyleCorwin)
