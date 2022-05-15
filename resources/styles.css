@@ -65,8 +65,7 @@ p {
 }
 
 .card {
-  position: absolute;
-  width: 327px;
+  max-width: 327px;
   height: 360px;
   background-image: radial-gradient(
     circle at bottom,
@@ -74,6 +73,7 @@ p {
     var(--gradient-light)
   );
   border-radius: 15px;
+  padding-top: 1px;
 }
 
 .star {
@@ -209,7 +209,7 @@ button[type="submit"]:hover {
 
 @media only screen and (min-width: 60em) {
   .card {
-    width: 412px;
+    max-width: 412px;
     height: 416px;
     border-radius: 30px;
   }
